@@ -15,8 +15,8 @@ if but1:
 else:
 	st.write("bye :wave:")
 
-but2=st.button("Pero, ¿y el bicho?")
-if but2:
+#but2=st.button("Pero, ¿y el bicho?")
+#if but2:
 
-else
- st.write("¿el bicho?")
+#else
+# st.write("¿el bicho?")
