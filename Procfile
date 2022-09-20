@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlist run Practica.py
+web: sh setup.sh && streamlit run Practica.py
