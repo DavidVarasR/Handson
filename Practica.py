@@ -204,4 +204,4 @@ but1=st.button("Predict", on_click=predict)
 
 if but1:
 	st.write("The formulary has been submitted. You can find the results at the top of this web page.")
-	st.write("Remember taht you should not fully trust any web page that predicts if you have cancer and the best option if you feel sick is to visit a doctor.")
+	st.write("Remember you should not fully trust any web page that predicts if you have cancer and the best option if you feel sick is to visit a doctor.")
