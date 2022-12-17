@@ -11,8 +11,8 @@ st.markdown("Data collection")
 st.sidebar.markdown("Predictor")
 
 st.write("# Objective")
-st.write("Cancer is the first cause of death in the world, in 2020 almost 10 million deaths are related to this diseas being lung cancer the second most comon type with 2.21 million cases as the WHO reports.")
-st.write("A lot of fake news and magical treatments have appeared along the years scamming and harming peoples lives due to the increasing fear in society to this disease.")
+st.write("Cancer is the first cause of death in the world, in 2020 almost 10 million deaths are related to this disease being lung cancer the second most common type with 2.21 million cases as the WHO reports.")
+st.write("A lot of fake news and magical treatments have appeared along the years scamming and harming people's lives due to the increasing fear in society to this disease.")
 st.write("The objective of this web page is to provide and user-friendly interface in where you will be able to check the probability of developing lung cancer related to your daily habits.")
 st.write("This interface is connected to a classification Machine Learning model. In the Data base section, you can find in the left side you can find the database and the data analysis performed for this predictor")
 
@@ -22,7 +22,7 @@ st.write("To predict your lung cancer probability you just have to fill the foll
 st.write("Do you live in a polluted place? :house_with_garden:")
 polutionst= st.radio(
 	"Choose one of the following:",
-	("Countryside","Village","Small town","Big town", "Samll city","Big city","Very poluted city (ex.Pekin)"))
+	("Countryside","Village","Small town","Big town", "Samll city","Big city","Very polluted city (ex.Pekin)"))
 
 if polutionst=="Countryside":
 	polution=1
@@ -46,7 +46,7 @@ elif alcohol ==0:
 	alcohol=1
 
 st.write("How sensible are you to dust?")
-dust = st.slider("Select bewteen 1 (no problem) and 8 (sever alergy)", min_value=1, max_value=8, step=1)
+dust = st.slider("Select between 1 (no problem) and 8 (sever allergy)", min_value=1, max_value=8, step=1)
 
 st.write("Are you exposed to any hazard in your daily work? :biohazard_sign:")
 hazardst = st.radio("Select one",
@@ -66,24 +66,24 @@ elif hazardst=="Other":
 else:
 	st.write("Please select one above")
 
-st.write("Any of your falimily members has a previous history of cancer?")
+st.write("Any of your family members has a previous history of cancer?")
 genetic = st.number_input("Not unrelated family mebers",0)
 if genetic > 8:
 	genetic=8
 elif genetic==0:
 	genetic=1
 
-st.write("Do you suffer any sever chronic lung diseas")
-chronic = st.slider("Choose a value bewteen 1 (Non or not important) to 8 (Several or very relevant)", min_value=1, max_value=8, step=1)
+st.write("Do you suffer any sever chronic lung disease")
+chronic = st.slider("Choose a value between 1 (Non or not important) to 8 (Several or very relevant)", min_value=1, max_value=8, step=1)
 
 st.write("Is your diet balanced? :broccoli:")
-dietst = st.select_slider("Select based on the quality and quantity of food you regularlly consume",
-	 ["Healthy","Balanced","Not concious","Usually fats food","Unhealthy"])
+dietst = st.select_slider("Select based on the quality and quantity of food you regularly consume",
+	 ["Healthy","Balanced","Not conscious","Usually fats food","Unhealthy"])
 if dietst=="Healthy":
 	diet=1
 elif dietst=="Balanced":
 	diet=2
-elif dietst=="Not concious":
+elif dietst=="Not conscious":
 	diet=3
 elif dietst=="Usually fats food":
 	diet=5
@@ -115,7 +115,7 @@ elif obesityst=="More than 130":
 else:
 	st.write("Please select one above")
 
-st.write("Are you an usual smoker? 	:smoking:")
+st.write("Are you a usual smoker? 	:smoking:")
 smokingst = st.radio("Choose how regular you smoke",
 	("Never","Rarely","Once a month","Usually", "Several days a week", "Every day"))
 
@@ -134,7 +134,7 @@ elif smokingst=="Every day":
 else:
 	st.write("Please select one above")
 
-st.write("And are you an usual pasive smoker?")
+st.write("And are you an usual passive smoker?")
 passivest =st.radio("Choose one",
 	("Never","Rarely","Once a week","Usually", "Several days a week", "Every day"))
 
@@ -153,10 +153,10 @@ elif passivest=="Every day":
 else:
 	st.write("Please select one above")
 
-st.write("When you suffer from chest pain, how intens is it?")
-chest = st.slider("Choose between 1(Dont have usually) and 8(Regular and heavy pain)",min_value=1, max_value=8, step=1)
+st.write("When you suffer from chest pain, how intense is it?")
+chest = st.slider("Choose between 1(Don't have usually) and 8(Regular and heavy pain)",min_value=1, max_value=8, step=1)
 
-st.write("Have you ever coughted blood?")
+st.write("Have you ever coughed blood?")
 coughing =st.number_input("Insert as many times as you remember:",0)
 
 if coughing > 8:
@@ -164,7 +164,7 @@ if coughing > 8:
 elif coughing ==0:
 	coughing=1
 
-st.write("Do you usually fell fatigated? 	:sleeping:")
+st.write("Do you usually feel fatigated? 	:sleeping:")
 fatigest= st.select_slider(
 	"Select one",
 	["Never","Rarely","Once a week","Usually", "Several days a week", "Every day"])
@@ -192,12 +192,16 @@ def predict():
 	if prediction [0] == "Low":
 			st.success("Congratulations, you have a low probability of haveing cancer")
 	elif  prediction [0] == "Medium":
-			st.warning("Take care,you have a medium probability of haveing cancer. You should improve your habits")
+			st.warning("Take care, you have a medium probability of haveing cancer. You should improve your habits")
 	elif prediction [0] == "High":
-			st.error("Your probability of haveing cancer is High. Yous hould vissit a doctor in case you fell sick to have a clear result.")
+			st.error("Your probability of having cancer is High. You should visit a doctor in case you fell sick to have a clear result.")
 	else:
 		st.error("Error")
 		st.write(row)
 		st.write(prediction)
 
-st.button("Predict", on_click=predict)
+but1=st.button("Predict", on_click=predict)
+
+if but1:
+	st.write("The formulary has been submitted. You can find the results at the top of this web page.")
+	st.write("Remember taht you should not fully trust any web page that predicts if you have cancer and the best option if you feel sick is to visit a doctor.")
